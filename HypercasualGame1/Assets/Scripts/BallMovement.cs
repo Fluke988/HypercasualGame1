@@ -8,7 +8,7 @@ public class BallMovement : MonoBehaviour
 
     void Start()
     {
-        
+
     }
 
     void Update()
@@ -38,4 +38,13 @@ public class BallMovement : MonoBehaviour
     //    // re-assigning the transform's position will clamp it
     //    transform.position = clampedPosition;
     //}
+
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.transform.tag.Equals("ground"))
+        {
+            Debug.Log("Game Over!!!");
+            Destroy(gameObject, 2f);
+        }
+    }
 }
